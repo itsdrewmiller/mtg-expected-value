@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html>
+	<head>
+	</head>
+	<body ng-app="mtg-expected-value" ng-controller="tourneyCtrl">
+
+		<dl>
+			<dt>My Elo</dt><dd><input ng-model="playerSettings.myElo" /></dd>
+			<dt>Opponent Mean</dt><dd><input ng-model="playerSettings.meanElo" numeric /></dd>
+			<dt>Opponent Standard Deviation</dt><dd><input ng-model="playerSettings.stddevElo" numeric /></dd>
+		</dl>
+		<select ng-model="format" ng-options="format.name for format in formats"></select>
+
+		<table>
+			<tr>
+				<th>Set</th>
+				<th>Pack Price</th>
+				<th>Draft Value</th>
+				<th>Sealed Value</th>
+			</tr>
+			<tr>
+				<td>Dragon's Maze</td>
+				<td><input ng-model="packSettings.dgmPack" numeric /></td>
+				<td><input ng-model="packSettings.dgmDraftPackValue" numeric /></td>
+				<td><input ng-model="packSettings.dgmSealedPackValue" numeric /></td>
+			</tr>
+			<tr>
+				<td>Gatecrash</td>
+				<td><input ng-model="packSettings.gtcPack" numeric /></td>
+				<td><input ng-model="packSettings.gtcDraftPackValue" numeric /></td>
+				<td><input ng-model="packSettings.gtcSealedPackValue" numeric /></td>
+			</tr>
+			<tr>
+				<td>Return to Ravnica</td>
+				<td><input ng-model="packSettings.rtrPack" numeric /></td>
+				<td><input ng-model="packSettings.rtrDraftPackValue" numeric /></td>
+				<td><input ng-model="packSettings.rtrSealedPackValue" numeric /></td>
+			</tr>
+			<tr>
+				<td>Magic 2013</td>
+				<td><input ng-model="packSettings.m13Pack" numeric /></td>
+				<td><input ng-model="packSettings.m13DraftPackValue" numeric /></td>
+				<td><input ng-model="packSettings.m13SealedPackValue" numeric /></td>
+			</tr>
+		</table>
+
+		<dl>
+			<dt>Iterations</dt><dd><input ng-model="iterations" /></dd>
+		</dl>
+
+		Expected value: {{expectedValue.toFixed(2)}}.
+
+		<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.1.5/angular.min.js"></script>
+		<script src="mtg-expected-value.js"></script>
+		<script src="angular-mtg-expected-value.js"></script>
+	</body>
+</html>
